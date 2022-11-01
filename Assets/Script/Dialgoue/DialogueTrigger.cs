@@ -10,9 +10,12 @@ public class DialogueTrigger : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            
             RaycastHit hit;
-            if(Physics.Raycast(ray,out hit) && hit.transform.gameObject.gameObject.name == this.name)
+            
+            if (Physics.Raycast(ray,out hit) && hit.transform.gameObject.gameObject.name == this.name)
             {
+                Debug.Log("Ãæµ¹?");
                 FindObjectOfType<DialogueManager>().StartDialgoue(dialogue);
             }
         }
