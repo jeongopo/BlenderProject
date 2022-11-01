@@ -1,12 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 
 public class SEManager : MonoBehaviour
 {
     public AudioSource SE_audioSource;
     public AudioClip[] SE_ChatClip;
+
+    public float SEVolume = 1.0f;
+    public Slider SEVolumeSlider;
+    bool SEMute = false;
     enum clip
     {
         CHAT,
@@ -41,4 +45,18 @@ public class SEManager : MonoBehaviour
     {
         SE_audioSource.Stop();
     }
+
+
+    public void SetSEMute()
+    {
+        SEMute = !SEMute;
+        SE_audioSource.mute = SEMute;
+    }
+
+    public void SetSEVolume()
+    {
+        SEVolume = SEVolumeSlider.value;
+        SE_audioSource.volume = SEVolume;
+    }
+
 }
