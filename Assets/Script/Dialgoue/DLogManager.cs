@@ -35,19 +35,12 @@ public class DLogManager : MonoBehaviour
                 i++;
             }
 
-            if (f_name == "플레이어")
-            {
-                tem = Instantiate(right_prefab, content);
-                tem.GetComponent<DL_right>().DL_init(f_text);
-            }
-            else
-            {
-                tem = Instantiate(left_prefab, content);
-                tem.GetComponent<DL_left>().DL_init(f_name, f_text);
-            }
+            tem = Instantiate(left_prefab, content);
+            tem.GetComponent<DL_left>().DL_init(f_name, f_text);
+
         }
        
-        scroll.content.sizeDelta = new Vector2(1920, count * 200);
+        scroll.content.sizeDelta = new Vector2(1000, count * 200);
 
     }
 
